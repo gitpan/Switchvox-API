@@ -7,7 +7,7 @@ use XML::Simple;
 
 use base 'HTTP::Request';
 
-our $VERSION = '1.0';
+our $VERSION = '1.02';
 
 sub new
 {

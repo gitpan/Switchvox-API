@@ -8,7 +8,7 @@ use XML::Parser;
 
 use base 'HTTP::Response';
 
-our $VERSION = '1.0';
+our $VERSION = '1.02';
 
 #- Force a non sax parser for error validation
 $XML::Simple::PREFERRED_PARSER = 'XML::Parser';
@@ -58,9 +58,9 @@ sub process
     elsif(exists $xmlin->{response}[0]{errors})
     {
 		my $errors = [];
-        foreach my $error ( @{$xmlin->{response}[0]{errors}} )
+		foreach my $error ( @{$xmlin->{response}[0]{errors}[0]{error}} )
         {
-			push(@$errors,{ code => $error->{error}[0]{code}, message => $error->{error}[0]{message} });
+			push(@$errors,{ code => $error->{code}, message => $error->{message} });
         }
 		return $self->_fault( errors => $errors );
     }

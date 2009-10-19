@@ -9,7 +9,7 @@ use Switchvox::API::Response;
 
 use base 'LWP::UserAgent';
 
-our $VERSION = '1.0';
+our $VERSION = '1.02';
 
 sub new
 {
